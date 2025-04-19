@@ -6,13 +6,23 @@ import requests
 import json
 
 # Tensorflow Model Prediction
+#def model_prediction(test_image):
+    #model = tf.keras.models.load_model("Training_fruit_vegetable_recognition_model_version_one.keras")
+    #model = tf.keras.models.load_model("Training_fruit_vegetable_recognition_model_version_two.keras")
+    #img = tf.keras.preprocessing.image.load_img(test_image, target_size=(180,180))
+    #input_arr = tf.keras.preprocessing.image.img_to_array(img)
+    #input_arr = np.expand_dims(input_arr, axis=0) / 255.0   # Convert single image to batch
+    #predictions = model.predict(input_arr)
+    #return np.argmax(predictions)  # Return index of max element
+
 def model_prediction(test_image):
-    model = tf.keras.models.load_model("trained_model.keras")
-    image = tf.keras.preprocessing.image.load_img(test_image, target_size=(64, 64))
-    input_arr = tf.keras.preprocessing.image.img_to_array(image)
-    input_arr = np.array([input_arr])  # Convert single image to batch
-    predictions = model.predict(input_arr)
-    return np.argmax(predictions)  # Return index of max element
+    model = tf.keras.models.load_model("Training_fruit_vegetable_recognition_model_version_two.keras")
+    img = tf.keras.utils.load_img(test_image, target_size=(180,180))
+    img_arr = tf.keras.utils.array_to_img(img)
+    img_bat = tf.expand_dims(img_arr, 0)
+    prediction = model.predict(img_bat)
+    print(prediction)
+    return np.argmax(prediction)
 
 # Set page title and icon
 st.set_page_config(page_title="Fruit & Veggie Recognizer", page_icon="🍎")
