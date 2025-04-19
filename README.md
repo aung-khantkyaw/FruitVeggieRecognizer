@@ -32,10 +32,6 @@ FruitVeggieRecognizer is a machine learning-based project designed to identify a
 2. Open your browser and navigate to `http://localhost:8501`.
 3. Upload an image and view the classification results.
 
-## Dataset
-
-The model is trained on a diverse dataset of fruits and vegetables. You can find more details about the dataset in the `data/` directory.
-
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
